@@ -43,7 +43,7 @@ Microsoft Defender for Servers には以下のプランがあります：
 7. 「**設定と監視**」セクションで、「**Defender for Servers プラン 2**」を選択します。
 8. 「**保存**」をクリックします。
 
-![Defender プランの有効化](../../images/module3/defender-plans.png)
+![Defender プランの有効化](../images/module3/defender-plans.png)
 
 ## タスク 2: Defender エージェントのインストール状態の確認
 
@@ -63,7 +63,7 @@ Microsoft Defender for Servers には以下のプランがあります：
 > - Azure Arc エージェントのステータスが「接続済み」になっているか
 > - Defender for Servers プランが正しく有効化されているか
 
-![Defender エージェントの確認](../../images/module3/defender-extensions.png)
+![Defender エージェントの確認](../images/module3/defender-extensions.png)
 
 ## タスク 3: 脆弱性評価の設定
 
@@ -73,14 +73,14 @@ Microsoft Defender for Servers には以下のプランがあります：
 2. 「**全般**」セクションから「**推奨事項**」をクリックします。
 3. 「タイトルでグループ化」し、「マシンには脆弱性評価ソリューションが必要(Machines should have a vulnerability assessment solution)」を探して選択
 
-![Defender 脆弱性の推奨事項修正](../../images/module3/defender-vulnerability.png)
+![Defender 脆弱性の推奨事項修正](../images/module3/defender-vulnerability.png)
 
 4. 「影響を受けるリソース」から脆弱性評価を展開したいリソースを選択して「修正」
 5. Microsoft Defender 脆弱性の管理 を選択して「続行」、「N 個のリソースの修正」を選択
 6. Defender for Cloud の推奨事項で「マシンには脆弱性評価ソリューションが必要」を再度開く
 7. 影響を受けるリソース、正常なリソースに設定したリソースがあることを確認
 
-![Defender 脆弱性の推奨事項確認](../../images/module3/defender-vulnerability-check.png)
+![Defender 脆弱性の推奨事項確認](../images/module3/defender-vulnerability-check.png)
 
 ## タスク 4: Defender for Servers のコンプライアンス状態の確認
 
@@ -88,8 +88,11 @@ Microsoft Defender for Servers には以下のプランがあります：
 2. リソースのフィルタを設定して「マシン - Azure Arc」を選択します。
 3. 対象の Azure Arc 対応サーバを確認し、推奨事項を確認します。これらの推奨事項は、時間と共に更新されます。
 
-![Defender 推奨事項確認](../../images/module3/defender-reccomend-check.png)
+![Defender 推奨事項確認](../images/module3/defender-reccomend-check.png)
 
 ## 次のステップ
 
-これで、Azure Arc に接続したサーバーに Microsoft Defender for Servers が正常に有効化されました。次のモジュールでは、テスト攻撃シナリオを実施して、セキュリティイベントを生成します。
+これで、Azure Arc に接続したサーバーに Microsoft Defender for Servers が正常に有効化されました。
+次のモジュールでは、PowerBI を使った可視化を行います。
+
+[モジュール 4: Azure Arc Insights Power BI ダッシュボード](./module04.md)に進みます。

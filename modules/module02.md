@@ -29,7 +29,7 @@ hostname
 3. 「**オンボード/作成**」ボタンをクリックします。
 4. 「**既存のマシンをオンボードする**」をクリックします。
 
-![Arc Onboarding 1](../../images/module2/arc_onboarding_1.png)
+![Arc Onboarding 1](../images/module2/arc_onboarding_1.png)
 
 6. 次の設定を入力します：
    - **サブスクリプション**: ご使用のサブスクリプション
@@ -56,14 +56,14 @@ hostname
      > 4. 「**作成**」をクリックしてサービスプリンシパルを作成します。
      > 5. 作成後、生成されたスクリプトにサービスプリンシパルの情報が自動的に含まれます。
 
-![Arc Onboarding 3](../../images/module2/arc_onboarding_3.png)
+![Arc Onboarding 3](../images/module2/arc_onboarding_3.png)
 
 7. 「**次へ: タグ**」をクリックします。
 8. 任意のタグを追加します（例: Environment=Lab）。
 9. 「**次へ: スクリプトのダウンロード**」をクリックします。
 10. 「**スクリプトのダウンロード**」をクリックし、スクリプトをダウンロードまたはコピーします。
 
-![Arc Onboarding 4](../../images/module2/arc_onboarding_4.png)
+![Arc Onboarding 4](../images/module2/arc_onboarding_4.png)
 
 ## タスク 3: Arc Connected Machine Agent のインストール
 
@@ -78,6 +78,20 @@ hostname
 > - Azure Automation の Update Management
 > - PowerShell リモート実行（Invoke-Command）\
 >   https://learn.microsoft.com/ja-jp/azure/azure-arc/servers/onboard-service-principal?tabs=portal
+
+> [!NOTE]  
+> Azureへの登録名をデフォルト（コンピューター名）から変更したい場合、登録コマンド `azcmagent connect` に `--resource-name` オプションを追加
+> ```
+> $env:RESOURCE_NAME = "<YOUR_RESOURCE_NAME>";
+> 
+> ...
+>
+> azcmagent.exe connect `
+>   ... 
+>   --resource-name "$env:RESOURCE_NAME" `
+>   ...
+>   ;
+> ```
 
 ### オプション A: Azure VM を使用した場合
 
@@ -132,10 +146,10 @@ cd C:\path\to\script\folder
 2. リストにサーバーが表示され、ステータスが「接続済み」になっていることを確認します。
 3. サーバーをクリックして、詳細ページを確認します。
 
-![Azure Arc接続済みサーバー](../../images/module2/check_connected_server.png)
+![Azure Arc接続済みサーバー](../images/module2/check_connected_server.png)
 
 ## 次のステップ
 
 これで、オンプレミスサーバーが Azure Arc に正常にオンボーディングされました。次のモジュールでは、Microsoft Defender for Servers を有効化して構成します。
 
-[モジュール 3: Microsoft Defender for Servers の有効化と構成](../module3/README.md)に進みます。
+[モジュール 3: Microsoft Defender for Servers の有効化と構成](./module03.md)に進みます。

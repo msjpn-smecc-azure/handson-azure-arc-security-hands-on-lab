@@ -39,7 +39,7 @@
 3. サブスクリプションの一覧が表示されます。使用するサブスクリプションがアクティブ状態であることを確認します。
 4. サブスクリプション名をクリックして詳細を確認できます。サブスクリプションの状態が「アクティブ」であることを確認します。
 
-![Azure サブスクリプションの確認](../../images/module1/subscription-check.png)
+![Azure サブスクリプションの確認](../images/module1/subscription-check.png)
 
 ## タスク 2: 必要な Azure リソースプロバイダーの登録
 
@@ -54,7 +54,7 @@
    - Microsoft.HybridConnectivity
    - Microsoft.AzureArcData ※SQL Sever の Azure Arc 登録を行う場合のみ
 
-![リソースプロバイダーの登録](../../images/module1/resource-providers.png)
+![リソースプロバイダーの登録](../images/module1/resource-providers.png)
 
 ## タスク 3: Azure Arc 対応サーバーのリソースグループを作成する
 
@@ -66,7 +66,7 @@
    - **地域**: お近くのリージョン
 4. 「**確認および作成**」をクリックし、検証が完了したら「**作成**」をクリックします。
 
-![リソースグループの作成](../../images/module1/create_resource_group.png)
+![リソースグループの作成](../images/module1/create_resource_group.png)
 
 ## タスク 4: 環境の選択と準備
 
@@ -115,14 +115,14 @@
    - **パスワード**: 任意（複雑なパスワードを設定し、メモしておいてください）
    - **パブリック受信ポート**: なし
 
-![仮想マシンの作成1](../../images/module1/create_virtual_machine_1.png)
+![仮想マシンの作成1](../images/module1/create_virtual_machine_1.png)
 
 4. 「**ディスク**」タブで、以下を確認します：
    - **OS ディスクサイズ**: イメージの規定値（127GiB）
    - **OS ディスクの種類**: Standard SSD（ローカル冗長ストレージ）
    - **VM と共に削除**: チェック
 
-![仮想マシンの作成2](../../images/module1/create_virtual_machine_2.png)
+![仮想マシンの作成2](../images/module1/create_virtual_machine_2.png)
 
 5. 「**ネットワーク**」タブで、以下を確認します：
    - **仮想ネットワーク**: 新規
@@ -132,11 +132,11 @@
    - **パブリック受信ポート**: なし
    - **VM が削除されたときにパブリック IP と NIC を削除する**: チェック
 
-![仮想マシンの作成3](../../images/module1/create_virtual_machine_3.png)
+![仮想マシンの作成3](../images/module1/create_virtual_machine_3.png)
 
 6. 「**確認および作成**」をクリックし、検証が完了したら「**作成**」をクリックします。
 
-![仮想マシンの作成4](../../images/module1/create_virtual_machine_4.png)
+![仮想マシンの作成4](../images/module1/create_virtual_machine_4.png)
 
 8. デプロイが完了するまで待ちます（約 5 分程度）。
 
@@ -146,7 +146,7 @@
 2. 「**接続**」→「**Bastion**」をクリックします。
 3. 仮想マシン作成時に設定したユーザ名とパスワードを入力し、「**接続**」をクリックします。
 
-![仮想マシンの接続](../../images/module1/connect_virtual_machine.png)
+![仮想マシンの接続](../images/module1/connect_virtual_machine.png)
 
 4. サーバーマネージャーが自動的に起動したら、「**ローカルサーバー**」をクリックします。
 5. 「**IE セキュリティ強化の構成**」の設定で「**オフ**」をクリックします（管理者のみ）。
@@ -156,7 +156,7 @@
 1. 拡張機能のアンインストール
    対象の Azure VM に拡張機能がインストールされていたらアンインストールをする。
 
-![Azure VM の拡張機能アンインストール](../../images/module1/check_vm_extension.png)
+![Azure VM の拡張機能アンインストール](../images/module1/check_vm_extension.png)
 
 2. ゲストエージェントの無効化
 
@@ -173,7 +173,7 @@ New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMD
 
 4. 上記コマンド実行後、ファイアウォールルールが作成されていることを確認する
 
-![Azure VM のFW rule の確認](../../images/module1/check_fw_rule.png)
+![Azure VM のFW rule の確認](../images/module1/check_fw_rule.png)
 
 ### オプション B: 既存のオンプレミスサーバー環境の確認
 
@@ -265,4 +265,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force
 
 これで環境のセットアップが完了しました。選択したオプション（Azure VM またはオンプレミスサーバー）に関わらず、次のモジュールでは、Azure Arc を使用してサーバーをオンボーディングします。
 
-[モジュール 2: Azure Arc でのサーバーオンボーディング](../module2/README.md)に進みます。
+[モジュール 2: Azure Arc でのサーバーオンボーディング](./module02.md)に進みます。
