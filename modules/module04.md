@@ -1,4 +1,4 @@
-# オプション モジュール: Azure Arc Insights Power BI ダッシュボード
+# モジュール 4: Azure Arc Insights Power BI ダッシュボード
 
 このオプションモジュールでは、Azure と Arc 対応サーバー、SQL Server VM インスタンス、SQL VM データベースの情報を一元的に管理するダッシュボードを提供します。
 
@@ -20,13 +20,13 @@
 
 1. Power BI テンプレートファイルを[ここ](https://github.com/Azure/arc_jumpstart_drops/blob/main/ui_dashboard_workbook/arc_pbi_dashboard/arc_insights_dashboard_jumpstart.pbit)からダウンロードする
 
-![インストールGithub](../../images/optional/install.png)
+![インストールGithub](../images/optional/install.png)
 
 ## タスク 2: Power BI ダッシュボードの表示
 
 1. ダウンロードした Power BI テンプレートファイルを開き、最初にダッシュボードを開くと更新が施行されます。
 
-![PBI読み込み](../../images/optional/reading-pbi.png)
+![PBI読み込み](../images/optional/reading-pbi.png)
 
 2. 更新中に、Power BI は以下のように「**Azure Resource Graph**」への読み取りアクセス権を持つアカウントでサインインします
 
@@ -34,15 +34,15 @@
 > 初回起動の場合、Azure Resource Graph 以外の接続が表示される場合があります。
 > Azure Resource Graph 以外は「匿名」で接続します。
 
-![PBI読み込み](../../images/optional/signin.png)
+![PBI読み込み](../images/optional/signin.png)
 
 3. ダッシュボードが表示されたら、保存をします。
 
-![PBI読み込み](../../images/optional/save.png)
+![PBI読み込み](../images/optional/save.png)
 
 4. 各タブを確認します。
 
-![タブ](../../images/optional/tab.png)
+![タブ](../images/optional/tab.png)
 
 ## 参考
 
