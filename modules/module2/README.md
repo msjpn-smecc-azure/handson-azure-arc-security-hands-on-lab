@@ -82,16 +82,15 @@ hostname
 > [!NOTE]  
 > Azureへの登録名をデフォルト（コンピューター名）から変更したい場合、登録コマンド `azcmagent connect` に `--resource-name` オプションを追加
 > ```
+> $env:RESOURCE_NAME = "<YOUR_RESOURCE_NAME>";
+> 
+> ...
+>
 > azcmagent.exe connect `
->   --service-principal-id "$ServicePrincipalId" `
->   --service-principal-secret "$ServicePrincipalClientSecret" `
->   --resource-group "$env:RESOURCE_GROUP" `
->   --resource-name "<YOUR_RESOURCE_NAME>" `
->   --tenant-id "$env:TENANT_ID" `
->   --location "$env:LOCATION" `
->   --subscription-id "$env:SUBSCRIPTION_ID" `
->   --cloud "$env:CLOUD" `
->   --correlation-id "$env:CORRELATION_ID";
+>   ... 
+>   --resource-name "$env:RESOURCE_NAME" `
+>   ...
+>   ;
 > ```
 
 ### オプション A: Azure VM を使用した場合
