@@ -79,6 +79,21 @@ hostname
 > - PowerShell リモート実行（Invoke-Command）\
 >   https://learn.microsoft.com/ja-jp/azure/azure-arc/servers/onboard-service-principal?tabs=portal
 
+> [!NOTE]  
+> Azureへの登録名をデフォルト（コンピューター名）から変更したい場合、登録コマンド `azcmagent connect` に `--resource-name` オプションを追加
+> ```
+> azcmagent.exe connect `
+>   --service-principal-id "$ServicePrincipalId" `
+>   --service-principal-secret "$ServicePrincipalClientSecret" `
+>   --resource-group "$env:RESOURCE_GROUP" `
+>   --resource-name "<YOUR_RESOURCE_NAME>" `
+>   --tenant-id "$env:TENANT_ID" `
+>   --location "$env:LOCATION" `
+>   --subscription-id "$env:SUBSCRIPTION_ID" `
+>   --cloud "$env:CLOUD" `
+>   --correlation-id "$env:CORRELATION_ID";
+> ```
+
 ### オプション A: Azure VM を使用した場合
 
 > [!NOTE]
