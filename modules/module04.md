@@ -18,7 +18,7 @@
 
 ## タスク 1: Arc Insights PBI ダッシュボードをインストール
 
-1. Power BI テンプレートファイルを[ここ](https://github.com/Azure/arc_jumpstart_drops/blob/main/ui_dashboard_workbook/arc_pbi_dashboard/arc_insights_dashboard_jumpstart.pbit)からダウンロードする
+1. Power BI テンプレートファイルを[ここ](https://github.com/Azure/arc_jumpstart_drops/blob/main/ui_dashboard_workbook/arc_pbi_dashboard/arc_insights_dashboard_jumpstart_V2.pbit)からダウンロードする
 
 ![インストールGithub](../images/optional/install.png)
 
