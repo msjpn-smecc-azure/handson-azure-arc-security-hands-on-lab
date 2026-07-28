@@ -98,82 +98,60 @@
 
 ### オプション A: Azure VM を使用したシミュレーション環境のセットアップ
 
-このオプションでは、Azure VM を使用してオンプレミス環境をシミュレーションします。
+このオプションでは、`infra/azuredeploy.json` を使って Azure VM を自動デプロイし、オンプレミス環境をシミュレーションします。
 
-1. Azure ポータルの検索バーで「**仮想マシン**」と入力し、表示されるサービスをクリックします。
-2. 「**作成**」→「**Azure 仮想マシン**」をクリックします。
-3. 以下の設定で仮想マシンを構成します：
-   - **サブスクリプション**: ご使用のサブスクリプション
-   - **リソースグループ**: 新規作成「rg-arcservers」
-   - **仮想マシン名**: 任意
-   - **地域**: お近くのリージョン
-   - **可用性オプション**: インフラストラクチャ冗長は必要ありません
-   - **セキュリティの種類**: Standard
-   - **イメージ**: Windows Server 2016 Datacenter - x64 Gen2
-   - **サイズ**: Standard_D2s_v3（2 vCPU、8 GiB メモリ）または同等
-   - **ユーザー名**: 任意
-   - **パスワード**: 任意（複雑なパスワードを設定し、メモしておいてください）
-   - **パブリック受信ポート**: なし
+> [!NOTE]  
+> このテンプレートには、Azure Arc 検証用の事前準備（PowerShell 実行ポリシー変更、ゲストエージェント停止、Azure IMDS 宛て通信ブロック、VM 自動シャットダウン設定）が含まれています。
 
-![仮想マシンの作成1](../images/module1/create_virtual_machine_1.png)
+1. Azureポータルを開き、次の ARMテンプレート を開く
 
-4. 「**ディスク**」タブで、以下を確認します：
-   - **OS ディスクサイズ**: イメージの規定値（127GiB）
-   - **OS ディスクの種類**: Standard SSD（ローカル冗長ストレージ）
-   - **VM と共に削除**: チェック
+      [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmsjpn-smecc-azure%2Fhandson-azure-arc-security-hands-on-lab%2Frefs%2Fheads%2Fdevelop%2Finfra%2Fazuredeploy.json)
 
-![仮想マシンの作成2](../images/module1/create_virtual_machine_2.png)
+      (*) 手動実行する場合、 [deploy.json](../infra/azuredeploy.json) を利用
 
-5. 「**ネットワーク**」タブで、以下を確認します：
-   - **仮想ネットワーク**: 新規
-   - **サブネット**: 新規
-   - **パブリック IP**: 新規
-   - **NIC ネットワークセキュリティグループ**: Basic
-   - **パブリック受信ポート**: なし
-   - **VM が削除されたときにパブリック IP と NIC を削除する**: チェック
+1. カスタム デプロイ
 
-![仮想マシンの作成3](../images/module1/create_virtual_machine_3.png)
+  1. 以下を入力して「確認と作成」
 
-6. 「**確認および作成**」をクリックし、検証が完了したら「**作成**」をクリックします。
+      - サブスクリプション: (任意)
+      - リソースグループ: (任意)
+      - リージョン: `Japan East`
+      - VM Name: (任意)
+      - Admin Username: (任意)
+      - Admin Password: (任意)
 
-![仮想マシンの作成4](../images/module1/create_virtual_machine_4.png)
+  1. 内容確認して「作成」
 
-8. デプロイが完了するまで待ちます（約 5 分程度）。
+1. デプロイ完了後、作成した仮想マシンを「再起動」
 
-#### Azure VM への接続とセットアップ
+> [!TIP]  
+> Arcが利用可能な仮想マシンになっているかどうか、以下の観点で確認できます。
+> - "ゲストエージェント無効化" の確認
+> 
+>     次のコマンドを PowerShell で実行
+> 
+>     ```
+>     Get-Service WindowsAzureGuestAgent | Select-Object Name, Status, StartType
+>     ```
+> 
+>     期待値
+>     - `State : Stopped`
+>     - `StartMode : Disabled`
+> 
+>     ダメなら次を実行
+> 
+>     ```
+>     Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
+>     Stop-Service WindowsAzureGuestAgent -Force -Verbose
+>     ```
+> 
+> - Azure IDMS エンドポイントへのアクセスをブロック
+> 
+>     「セキュリティが強化された Windows Defender ファイアウォール」を開き、「送信の規則」に以下が含まれている
+> 
+>     - Block access to Azure IMDS (169.254.169.254)
+>     - Block access to Azure Local IMDS (169.254.169.253)
 
-1. デプロイが完了したら、作成した仮想マシンの概要ページに移動します。
-2. 「**接続**」→「**Bastion**」をクリックします。
-3. 仮想マシン作成時に設定したユーザ名とパスワードを入力し、「**接続**」をクリックします。
-
-![仮想マシンの接続](../images/module1/connect_virtual_machine.png)
-
-4. サーバーマネージャーが自動的に起動したら、「**ローカルサーバー**」をクリックします。
-5. 「**IE セキュリティ強化の構成**」の設定で「**オフ**」をクリックします（管理者のみ）。
-
-#### Azure VM の事前準備
-
-1. 拡張機能のアンインストール
-   対象の Azure VM に拡張機能がインストールされていたらアンインストールをする。
-
-![Azure VM の拡張機能アンインストール](../images/module1/check_vm_extension.png)
-
-2. ゲストエージェントの無効化
-
-```powershell
-Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
-Stop-Service WindowsAzureGuestAgent -Force -Verbose
-```
-
-3. Azure IDMS エンドポイントへのアクセスをブロック
-
-```powershell
-New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
-```
-
-4. 上記コマンド実行後、ファイアウォールルールが作成されていることを確認する
-
-![Azure VM のFW rule の確認](../images/module1/check_fw_rule.png)
 
 ### オプション B: 既存のオンプレミスサーバー環境の確認
 
