@@ -16,9 +16,9 @@
 2. スタートメニューを右クリックし、「**Windows PowerShell (管理者)**」を選択します。
 3. 次のコマンドを実行して、サーバーの名前を確認します：
 
-```powershell
-hostname
-```
+    ```powershell
+    hostname
+    ```
 
 4. PowerShell ウィンドウを開いたままにしておきます。
 
