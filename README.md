@@ -25,7 +25,8 @@
 1. **[モジュール 1](modules/module01.md)**: 環境のセットアップと前提条件の確認
 1. **[モジュール 2](modules/module02.md)**: Azure Arc でのサーバーオンボーディング
 1. **[モジュール 3](modules/module03.md)**: Microsoft Defender for Servers の有効化と構成
-1. **[モジュール 4](modules/module04.md)**: Azure Arc 対応サーバーや Azure VM の情報を Power BI で一元可視化
+1. **[モジュール 4](modules/module04.md)**: Azure Update Manager を使用したパッチ管理
+1. **[モジュール 5](modules/module05.md)**: Azure Arc 対応サーバーや Azure VM の情報を Power BI で一元可視化
 1. **[モジュール x](modules/module99.md)**: クリーンアップ
 
 ## 対象者

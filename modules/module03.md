@@ -47,7 +47,7 @@ Microsoft Defender for Servers には以下のプランがあります：
 
 ## タスク 2: Defender エージェントのインストール状態の確認
 
-> [!NOTE]
+> [!NOTE]  
 > Defender for Servers を有効化してから、エージェント（MDE.Windows 拡張機能）が自動的にインストールされるまで **15〜30 分程度**かかる場合があります。拡張機能が表示されない場合は、しばらく待ってからページを更新してください。
 
 1. Azure ポータルで「**Azure Arc**」→「**マシン - Azure Arc**」に移動します。
@@ -56,7 +56,7 @@ Microsoft Defender for Servers には以下のプランがあります：
 4. 次の拡張機能がインストールされていることを確認します：
    - MDE.Windows
 
-> [!NOTE]
+> [!NOTE]  
 > 30 分以上経過してもエージェントがインストールされない場合は、以下を確認してください：
 >
 > - サーバーがインターネットに接続できているか
@@ -69,7 +69,7 @@ Microsoft Defender for Servers には以下のプランがあります：
 
 脆弱性評価も自動展開されますが、こちらの機能は「推奨事項」から強制適用することも可能です。以下の手順で適用状況を確認し、強制適用を行います。
 
-1. Aure ポータルで「**Defender for Cloud**」と入力し、表示されるサービスをクリック。
+1. Azure ポータルで「**Defender for Cloud**」と入力し、表示されるサービスをクリック。
 2. 「**全般**」セクションから「**推奨事項**」をクリックします。
 3. 「タイトルでグループ化」し、「マシンには脆弱性評価ソリューションが必要(Machines should have a vulnerability assessment solution)」を探して選択
 
@@ -93,6 +93,6 @@ Microsoft Defender for Servers には以下のプランがあります：
 ## 次のステップ
 
 これで、Azure Arc に接続したサーバーに Microsoft Defender for Servers が正常に有効化されました。
-次のモジュールでは、PowerBI を使った可視化を行います。
+次のモジュールでは、Update Manager を使ったパッチ管理を行います。
 
-[モジュール 4: Azure Arc Insights Power BI ダッシュボード](./module04.md)に進みます。
+[モジュール 4: Azure Arc 対応サーバーの Update Manager](./module04.md)に進みます。
