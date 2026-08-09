@@ -62,7 +62,7 @@
 2. 「**作成**」をクリックします。
 3. 以下の設定を入力します：
    - **サブスクリプション**: ご使用のサブスクリプション
-   - **リソースグループ**: rg-arcservers
+   - **リソースグループ**: `rg-arcservers` (任意)
    - **地域**: お近くのリージョン
 4. 「**確認および作成**」をクリックし、検証が完了したら「**作成**」をクリックします。
 
@@ -88,7 +88,7 @@
 
 - 管理者権限を持つアカウント
 
-> [!CAUTION]
+> [!CAUTION]  
 > Windows Server 2012/2012 R2 を使用する場合、以下の追加作業が必要です
 >
 > - WMF (Windows Management Framework) 5.1 のインストール
@@ -128,7 +128,7 @@
 
 
 > [!TIP]  
-> Arcが利用可能な仮想マシンになっているかどうか、以下の観点で確認できます。
+> Arcが利用可能な仮想マシンになっているかどうか、作成した仮想マシンに入って以下の観点を確認することで、確認できます。
 > - "ゲストエージェント無効化" の確認
 > 
 >     次のコマンドを PowerShell で実行
@@ -150,7 +150,7 @@
 > 
 > - Azure IDMS エンドポイントへのアクセスをブロック
 > 
->     「セキュリティが強化された Windows Defender ファイアウォール」を開き、「送信の規則」に以下が含まれている
+>     「セキュリティが強化された Windows Defender ファイアウォール (Windows Defender Firewall with Advanced Security)」を開き、「送信の規則 (Outbound Rules)」に以下が含まれている
 > 
 >     - Block access to Azure IMDS (169.254.169.254)
 >     - Block access to Azure Local IMDS (169.254.169.253)
@@ -178,7 +178,7 @@ netsh winhttp show proxy
 
 ## タスク 4.1: Windows Server 2012/2012 R2 の追加設定
 
-> [!CAUTION]
+> [!CAUTION]  
 > このタスクは Windows Server 2012 または Windows Server 2012 R2 を使用する場合のみ実行してください。
 
 Windows Server 2012/2012 R2 では、Azure Arc エージェントの要件を満たすために以下の追加設定が必要です：
